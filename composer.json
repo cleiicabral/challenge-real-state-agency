@@ -1,0 +1,16 @@
+{
+    "name": "cleyton/challenge-real-state-agency",
+    "description": "Real estate lease management program",
+    "autoload": {
+        "psr-4": {
+            "App\\": "/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Cleyton Cabral Soares",
+            "email": "55414629+cleiicabral@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
