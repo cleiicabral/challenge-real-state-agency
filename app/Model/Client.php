@@ -7,7 +7,6 @@ use PhpDao\Model;
 
 class Client
 {
-
 	public string $id;
     public string $name;
     public string $email;

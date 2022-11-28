@@ -19,7 +19,7 @@ class CreatePropertyController
 
 			return json_encode($property);
 		} catch (\Throwable $th) {
-			return $th->getMessage();
+			return json_encode($th->getMessage());
 		}
 	}
 }

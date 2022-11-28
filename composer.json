@@ -13,11 +13,8 @@
         }
     ],
     "require": {
-        "doctrine/dbal": "^3.5",
-        "doctrine/orm": "^2.13",
-        "ramsey/uuid": "^4.2",
-        "symfony/cache": "^5.4",
-        "symfony/yaml": "^5.4"
+        "nesbot/carbon": "^2.63",
+        "ramsey/uuid": "^4.2"
     },
 	"config": {
         "optimize-autoloader": true,

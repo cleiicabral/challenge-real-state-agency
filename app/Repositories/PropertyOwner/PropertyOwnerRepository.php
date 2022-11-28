@@ -48,8 +48,8 @@ class PropertyOwnerRepository implements PropertyOwnerRepositoryInterface
 			}
 
 			return $success ? $propertyOwnerCreated : null;
-		} catch (Exception $th) {
-			throw new Exception($this->connection->errorInfo()[2],400);
+		} catch (Exception $e) {
+			throw new Exception($e->getMessage(),400);
 		}
 	}
 
@@ -64,8 +64,8 @@ class PropertyOwnerRepository implements PropertyOwnerRepositoryInterface
 			}
 
 			return $propertyOwnerDataList;
-		} catch (Exception $th) {
-			throw new Exception($this->connection->errorInfo()[2],400);
+		} catch (Exception $e) {
+			throw new Exception($e->getMessage(),400);
 		}
 	}
 
@@ -79,8 +79,8 @@ class PropertyOwnerRepository implements PropertyOwnerRepositoryInterface
 			$propertyOwner = $stmt->fetchObject('App\Model\PropertyOwner');
 
 			return $propertyOwner;
-		} catch (Exception $th) {
-			throw new Exception($this->connection->errorInfo()[2],400);
+		} catch (Exception $e) {
+			throw new Exception($e->getMessage(),400);
 		}
 	}
 
@@ -114,8 +114,8 @@ class PropertyOwnerRepository implements PropertyOwnerRepositoryInterface
 			}
 
 			return $success ? $propertyOwnerUpdated : null;
-		} catch (Exception $th) {
-			throw new Exception($this->connection->errorInfo()[2],400);
+		} catch (Exception $e) {
+			throw new Exception($e->getMessage(),400);
 		}
 	}
 }

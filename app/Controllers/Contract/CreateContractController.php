@@ -4,6 +4,7 @@ namespace App\Controllers\Contract;
 
 use App\Dtos\Contract\CreateContractDto;
 use App\Repositories\Contract\ContractRepository;
+use App\Repositories\MonthlyPayment\MonthlyPaymentRepository;
 use App\Services\Contract\CreateContractService;
 
 class CreateContractController
@@ -13,7 +14,8 @@ class CreateContractController
 	{
 		try {
 			$contractRepository = new ContractRepository();
-			$createContractService = new CreateContractService($contractRepository);
+			$monthlyPayment = new MonthlyPaymentRepository();
+			$createContractService = new CreateContractService($contractRepository,$monthlyPayment);
 			$createContractDto = new CreateContractDto((array)$params);
 			$contractCreated =  $createContractService->execute($createContractDto);
 			return json_encode($contractCreated);

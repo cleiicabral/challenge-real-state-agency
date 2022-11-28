@@ -49,8 +49,8 @@ class PropertyRepository implements PropertyRepositoryInterface
 			}
 
 			return $success ? $propertyCreated : null;
-		} catch (Exception $th) {
-			throw new Exception($this->connection->errorInfo()[2],400);
+		} catch (Exception $e) {
+			throw new Exception($e->getMessage(),400);
 		}
 	}
 
@@ -99,8 +99,8 @@ class PropertyRepository implements PropertyRepositoryInterface
 			}
 
 			return $success ? $propertyDataList : null;
-		} catch (Exception $th) {
-			throw new Exception($this->connection->errorInfo()[2],400);
+		} catch (Exception $e) {
+			throw new Exception($e->getMessage(),400);
 		}
 	}
 
@@ -130,8 +130,8 @@ class PropertyRepository implements PropertyRepositoryInterface
 			}
 
 			return $success ? $propertyUpdated : null;
-		} catch (Exception $th) {
-			throw new Exception($this->connection->errorInfo()[2],400);
+		} catch (Exception $e) {
+			throw new Exception($e->getMessage(),400);
 		}
 	}
 
@@ -180,8 +180,8 @@ class PropertyRepository implements PropertyRepositoryInterface
 			}
 
 			return $success ? $propertyData : null;
-		} catch (Exception $th) {
-			throw new Exception($this->connection->errorInfo()[2],400);
+		} catch (Exception $e) {
+			throw new Exception($e->getMessage(),400);
 		}
 	}
 }

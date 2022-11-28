@@ -15,8 +15,9 @@ class UpdatePropertyOwnerController
 			$service = new UpdatePropertyOwnerService($propertyOwnerRepository);
 			$propertyOwnerDto = new UpdatePropertyOwnerDto((array) $params);
 			$propertyOwner = $service->execute($params->id, $propertyOwnerDto);
+			return json_encode($propertyOwner);
 		} catch (\Throwable $th) {
-			return $th->getMessage();
+			return json_encode($th->getMessage());
 		}
 
 	}

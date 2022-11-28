@@ -68,8 +68,8 @@ class ContractRepository implements ContractRepositoryInterface
 			}
 
 			return $success ? $propertyCreated : null;
-		} catch (Exception $th) {
-			throw new Exception($th->getMessage(),400);
+		} catch (Exception $e) {
+			throw new Exception($e->getMessage(),400);
 		}
 	}
 
@@ -90,8 +90,8 @@ class ContractRepository implements ContractRepositoryInterface
 			}
 
 			return $success ? $contracts : null;
-		} catch (Exception $th) {
-			throw new Exception($th->getMessage(),400);
+		} catch (Exception $e) {
+			throw new Exception($e->getMessage(),400);
 		}
 	}
 
@@ -136,8 +136,8 @@ class ContractRepository implements ContractRepositoryInterface
 			}
 
 			return $success ? $contractUpdated : null;
-		} catch (Exception $th) {
-			throw new Exception($this->connection->errorInfo()[2],400);
+		} catch (Exception $e) {
+			throw new Exception($e->getMessage(),400);
 		}
 	}
 
@@ -218,8 +218,8 @@ class ContractRepository implements ContractRepositoryInterface
 			}
 
 			return $success ? $contractData : null;
-		} catch (Exception $th) {
-			throw new Exception($th->getMessage(),400);
+		} catch (Exception $e) {
+			throw new Exception($e->getMessage(),400);
 		}
 	}
 }

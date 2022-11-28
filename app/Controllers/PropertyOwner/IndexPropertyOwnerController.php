@@ -15,7 +15,7 @@ class IndexPropertyOwnerController
 			$propertyOwners = $service->execute();
 			return json_encode($propertyOwners);
 		} catch (\Throwable $th) {
-			return $th->getMessage();
+			return json_encode($th->getMessage());
 		}
 	}
 }

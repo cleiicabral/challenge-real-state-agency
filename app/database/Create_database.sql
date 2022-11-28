@@ -69,3 +69,15 @@ CREATE TABLE IF NOT EXISTS `state_agency_db`.`contracts` (
     ON DELETE CASCADE
     ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `state_agency_db`.`monthly_payments` (
+  `id` VARCHAR(36) NOT NULL,
+  `price` DOUBLE NOT NULL,
+  `due_date` DATETIME NOT NULL,
+  `type` VARCHAR(36) NOT NULL,
+  `status` VARCHAR(36) NOT NULL DEFAULT 'PENDING',
+  `person_in_charge` VARCHAR(36) NOT NULL,
+  `created_at` DATETIME NOT NULL,
+  `updated_at` DATETIME NOT NULL,
+CONSTRAINT monthly_payment_pk PRIMARY KEY (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

@@ -17,7 +17,7 @@ class UpdateClientController
 			$clients = $service->execute($params->id, $clientDto);
 			return json_encode($clients);
 		} catch (\Throwable $th) {
-			return $th->getMessage();
+			return json_encode($th->getMessage());
 		}
 	}
 }

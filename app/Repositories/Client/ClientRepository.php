@@ -46,8 +46,8 @@ class ClientRepository implements ClientRepositoryInterface
 			}
 
 			return $success ? $clientCreated : null;
-		} catch (Exception $th) {
-			throw new Exception($this->connection->errorInfo()[2],400);
+		} catch (Exception $e) {
+			throw new Exception($e->getMessage(),400);
 		}
 	}
 
@@ -63,20 +63,24 @@ class ClientRepository implements ClientRepositoryInterface
 
 			return $clientDataList;
 		} catch (Exception $e) {
-			return null;
+			throw new Exception($e->getMessage(),400);
 		}
 
 	}
 
 	public function find(string $clientId)
 	{
-		$sqlQuery = 'SELECT * FROM clients WHERE id = ?;';
-        $stmt = $this->connection->prepare($sqlQuery);
-        $stmt->bindValue(1, $clientId);
-        $stmt->execute();
-		$client = $stmt->fetchObject('App\Model\Client');
+		try {
+			$sqlQuery = 'SELECT * FROM clients WHERE id = ?;';
+	        $stmt = $this->connection->prepare($sqlQuery);
+	        $stmt->bindValue(1, $clientId);
+	        $stmt->execute();
+			$client = $stmt->fetchObject('App\Model\Client');
 
-        return $client;
+	        return $client;
+		} catch (Exception $e) {
+			throw new Exception($e->getMessage(),400);
+		}
 	}
 
 	public function update(string $clientId, UpdateClientDto $clientDto)
@@ -98,7 +102,7 @@ class ClientRepository implements ClientRepositoryInterface
 	        return $stmt->execute();
 
 		} catch (Exception $e) {
-			var_dump($this->connection->errorInfo());
+			throw new Exception($e->getMessage(),400);
 		}
 	}
 

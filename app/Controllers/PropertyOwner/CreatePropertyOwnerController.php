@@ -17,7 +17,7 @@ class CreatePropertyOwnerController
 			$propertyOwner = $service->execute($propertyOwnerDto);
 			return json_encode($propertyOwner);
 		} catch (\Throwable $th) {
-			return $th->getMessage();
+			return json_encode($th->getMessage());
 		}
 	}
 }
