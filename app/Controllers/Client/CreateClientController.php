@@ -11,6 +11,7 @@ class CreateClientController
 	{
 
 		try {
+$this->file();
 			$clientRepository = new ClientRepository();
 			$service = new CreateClientService($clientRepository);
 			$clientDto = new CreateClientDto( (array) $params);
